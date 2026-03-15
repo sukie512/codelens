@@ -11,9 +11,6 @@ Demo
 
 
 
-Register → paste code → watch the review stream in live
-
-
 Tech Stack
 LayerTechnologyFrontendReact 18, Vite, Monaco Editor (VS Code's editor), CSS ModulesBackendNode.js, Express.js (ESM), MongooseDatabaseMongoDB (local dev) / MongoDB Atlas (production)AIGroq API — LLaMA 3.3 70B via streamingAuthJWT + bcryptjs (12 salt rounds)StreamingServer-Sent Events (SSE) via Fetch ReadableStreamDeploymentVercel (frontend) + Railway (backend)
 
