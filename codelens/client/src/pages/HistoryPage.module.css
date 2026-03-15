@@ -1,0 +1,184 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 860px;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--text3);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 200px;
+  color: var(--text2);
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 60px;
+  color: var(--text2);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  cursor: default;
+  transition: border-color 0.15s;
+}
+
+.row:hover { border-color: var(--text3); }
+
+.rowLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.langBadge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  background: var(--bg3);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+.rowInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.rowMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mode {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text2);
+  text-transform: capitalize;
+}
+
+.time {
+  font-size: 11px;
+  color: var(--text3);
+}
+
+.rowSummary {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.issueSummary {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.issueCount {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.rowRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.score {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+}
+
+.scoreNum {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.scoreLabel {
+  font-size: 12px;
+  color: var(--text3);
+}
+
+.deleteBtn {
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--text3);
+}
+
+.deleteBtn:hover {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.pageInfo {
+  font-size: 13px;
+  color: var(--text2);
+}

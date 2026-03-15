@@ -1,0 +1,88 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 40px 32px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--text2);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+}
+
+.input {
+  padding: 9px 12px;
+  width: 100%;
+}
+
+.error {
+  font-size: 13px;
+  color: var(--red);
+  background: rgba(248, 81, 73, 0.1);
+  border: 1px solid rgba(248, 81, 73, 0.2);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+}
+
+.submit {
+  width: 100%;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 4px;
+}
+
+.switch {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--text2);
+}

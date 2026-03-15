@@ -1,0 +1,90 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerInner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  margin-right: 8px;
+}
+
+.logoIcon {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.logoText {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.nav {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.navLink {
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  color: var(--text2);
+  font-size: 14px;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: var(--text);
+  background: var(--bg3);
+  text-decoration: none;
+}
+
+.active {
+  color: var(--text);
+  background: var(--bg3);
+}
+
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.userName {
+  color: var(--text2);
+  font-size: 13px;
+}
+
+.main {
+  flex: 1;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
