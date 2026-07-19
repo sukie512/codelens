@@ -140,3 +140,30 @@
 .allClearIcon {
   font-size: 16px;
 }
+
+.staticSection {
+  border: 1px solid rgba(88, 166, 255, 0.2);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.staticHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(88, 166, 255, 0.06);
+  border-bottom: 1px solid rgba(88, 166, 255, 0.15);
+}
+
+.staticBadge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.staticSub {
+  font-size: 12px;
+  color: var(--text2);
+}

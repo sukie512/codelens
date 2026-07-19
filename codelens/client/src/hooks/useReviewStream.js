@@ -7,6 +7,7 @@ export function useReviewStream() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const esRef = useRef(null);
+  const [staticIssues, setStaticIssues] = useState([]); // new state for static analysis issues 
 
   const startReview = useCallback(async ({ code, language, mode }) => {
     if (esRef.current) esRef.current.close();
@@ -56,6 +57,11 @@ export function useReviewStream() {
               if (raw === "{}") continue;
               const data = JSON.parse(raw);
 
+              if (data.issues && !data.parsed) {
+  // this is the static analysis result
+  setStaticIssues(data.issues);
+}
+
               if (data.message) setStatus(data.message);
               if (data.text) setChunks((prev) => prev + data.text);
               if (data.parsed) {
@@ -84,5 +90,5 @@ export function useReviewStream() {
     setStreaming(false);
   }, []);
 
-  return { streaming, chunks, status, result, error, startReview, reset };
+  return { streaming, chunks, status, result, error, staticIssues, startReview, reset };
 }

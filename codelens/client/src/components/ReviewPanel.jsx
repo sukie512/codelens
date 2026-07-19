@@ -1,10 +1,18 @@
+
 import ScoreRing from "./ScoreRing.jsx";
 import IssueCard from "./IssueCard.jsx";
 import styles from "./ReviewPanel.module.css";
 
 const SEVERITY_ORDER = { critical: 0, high: 1, medium: 2, low: 3 };
 
-export default function ReviewPanel({ streaming, chunks, status, result, error }) {
+export default function ReviewPanel({
+  streaming,
+  chunks,
+  status,
+  result,
+  error,
+  staticIssues = [],
+}) {
   if (error) {
     return (
       <div className={styles.empty}>
@@ -13,7 +21,7 @@ export default function ReviewPanel({ streaming, chunks, status, result, error }
     );
   }
 
-  if (!streaming && !result && !chunks) {
+  if (!streaming && !result && !chunks && staticIssues.length === 0) {
     return (
       <div className={styles.empty}>
         <div className={styles.emptyIcon}>{"{ }"}</div>
@@ -36,11 +44,29 @@ export default function ReviewPanel({ streaming, chunks, status, result, error }
 
   return (
     <div className={styles.panel}>
+
       {/* Status bar */}
       {(streaming || status) && (
         <div className={styles.statusBar}>
           {streaming && <span className={styles.pulse} />}
           <span className={styles.statusText}>{status || "Reviewing..."}</span>
+        </div>
+      )}
+
+      {/* Static analysis results — appear instantly before AI */}
+      {staticIssues.length > 0 && (
+        <div className={styles.staticSection}>
+          <div className={styles.staticHeader}>
+            <span className={styles.staticBadge}>⚡ Static Analysis</span>
+            <span className={styles.staticSub}>
+              {staticIssues.length} issue{staticIssues.length > 1 ? "s" : ""} found instantly
+            </span>
+          </div>
+          <div className={styles.issues}>
+            {staticIssues.map((issue, i) => (
+              <IssueCard key={i} issue={issue} />
+            ))}
+          </div>
         </div>
       )}
 
@@ -51,7 +77,7 @@ export default function ReviewPanel({ streaming, chunks, status, result, error }
         </div>
       )}
 
-      {/* Parsed result */}
+      {/* Parsed AI result */}
       {result?.parsed && (
         <>
           <div className={styles.resultHeader}>
@@ -89,6 +115,7 @@ export default function ReviewPanel({ streaming, chunks, status, result, error }
           )}
         </>
       )}
+
     </div>
   );
 }

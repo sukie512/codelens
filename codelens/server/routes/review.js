@@ -4,8 +4,14 @@ import { reviewLimiter } from "../middleware/rateLimiter.js";
 import { streamReview, parseReviewJSON } from "../services/claudeService.js";
 import Review from "../models/Review.js";
 import User from "../models/User.js";
+import { runStaticAnalysis } from "../services/staticAnalysis.js";
+
+
 
 const router = express.Router();
+
+
+
 
 const SUPPORTED_LANGUAGES = [
   "javascript", "typescript", "python", "java", "c", "cpp",
@@ -27,6 +33,18 @@ router.post("/", authMiddleware, reviewLimiter, async (req, res) => {
   res.setHeader("Cache-Control", "no-cache");
   res.setHeader("Connection", "keep-alive");
   res.setHeader("X-Accel-Buffering", "no");
+
+  // After SSE headers and validation, before streamReview()
+
+// Run static analysis first — instant, no API call
+const staticResult = runStaticAnalysis(code, language);
+
+if (staticResult.supported && staticResult.issues.length > 0) {
+  send("static", {
+    issues: staticResult.issues,
+    summary: staticResult.summary
+  });
+}
 
   const send = (event, data) => {
     res.write(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`);
